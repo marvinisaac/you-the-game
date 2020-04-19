@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+source .env
+export DOCKER_IMAGE_NODE
+
+docker run --interactive --rm \
+    -w /usr/src/app \
+    --name npm \
+    --volume $PWD:/usr/src/app \
+    $DOCKER_IMAGE_NODE \
+    npm $@

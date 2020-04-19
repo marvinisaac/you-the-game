@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Get current version from VERSION.MD
+VERSION=$(head -n 1 VERSION.MD)
+
+# Bump version
+UPDATED_VERSION=$(./c/semver bump $1 $VERSION)
+
+# Write to VERSION.MD and .env
+echo $UPDATED_VERSION > VERSION.MD
+sed -i "/VUE_APP_VERSION=/c\VUE_APP_VERSION=$UPDATED_VERSION" ./.env
+
+git add VERSION.MD
