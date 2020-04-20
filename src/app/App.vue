@@ -1,16 +1,22 @@
 <template>
-    <div class="hero is-fullheight is-white">
-        <div class="hero-body">
-            <h1 class="title">You, The Game</h1>
-            <div class="footer">
-                <p class="is-size-7">{{version}}</p>
-            </div>
+    <section class="hero is-fullheight is-white">
+        <div class="hero-head">
+            <h1 class="title">You: The Game</h1>
         </div>
-    </div>
+        <ui class="is-align-top"></ui>
+        <div class="hero-foot has-background-dark has-text-white">
+            <p class="is-size-7">v{{ version }}</p>
+        </div>
+    </section>
 </template>
 
 <script>
+import Ui from './AppUi.vue'
+
 export default {
+    components: {
+        Ui
+    },
     data: () => ({
         version: process.env.VUE_APP_VERSION
     })
@@ -18,18 +24,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hero.is-fullheight {
-    padding: 0;
-    .hero-body {
-        flex-direction: column;
-        padding: 0;
-        .footer {
-            background: transparent;
-            margin-top: auto;
-            padding: 0;
-            text-align: center;
-            width: 100%;
-        }
+* {
+    line-height: 2em;
+    user-select: none;
+}
+.hero {
+    .hero-head, .hero-foot {
+        text-align: center;
+    }
+    .hero-foot {
+        padding: 0.5em 0;
+    }
+    .is-align-top {
+        margin-bottom: auto;
     }
 }
 </style>
