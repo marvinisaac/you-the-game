@@ -1,21 +1,23 @@
 <template>
     <div>
         <p>
-            <span class="has-text-weight-bold">Name:</span>
-            {{name}}
+            <span class="has-text-weight-bold">Name </span>
+            <span>{{name}}</span>
         </p>
         <hr/>
-        <ul v-for="attribute in attributes"
-            :key="attribute.name">
-            <li v-if="attribute.visible">
-                <span class="has-text-weight-bold">{{ attribute.name }}:</span>
-                {{ attribute.value }}
+        <ul>
+            <li v-for="attribute in attributes"
+                :key="attribute.name">
+                <template v-if="attribute.visible">
+                    <span class="has-text-weight-bold">{{ attribute.name }} </span>
+                    <span>{{ attribute.value }}</span>
+                </template>
             </li>
         </ul>
         <hr/>
         <p>
-            <span class="has-text-weight-bold">Weight:</span>
-            0 / {{ inventoryWeightLimit }}
+            <span class="has-text-weight-bold">Weight </span>
+            <span>0 / {{ inventoryWeightLimit }}</span>
         </p>
     </div>
 </template>
