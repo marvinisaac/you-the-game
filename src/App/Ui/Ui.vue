@@ -11,16 +11,14 @@
                     </div>
                 </div>
                 <div class="column">
-                    <div class="tabs is-toggle">
-                        <ul>
-                            <li class="is-capitalized"
-                                v-for="tabItem in tab.list"
-                                @click="tab.active = tabItem"
-                                :class="{'is-active': tabItem === tab.active}"
-                                :key="tabItem">
-                                <a>{{ tabItem }}</a>
-                            </li>
-                        </ul>
+                    <div class="buttons has-addons">
+                        <button class="button is-capitalized"
+                            v-for="tabItem in tab.list"
+                            @click="tab.active = tabItem"
+                            :class="{'is-dark': tabItem === tab.active}"
+                            :key="tabItem">
+                            {{ tabItem }}
+                        </button>
                     </div>
                     <action v-if="tab.active === 'action'"></action>
                     <inventory v-if="tab.active === 'inventory'"></inventory>
