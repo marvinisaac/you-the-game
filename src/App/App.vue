@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Ui from './AppUi.vue'
+import Ui from './Ui/Ui.vue'
 
 export default {
     components: {

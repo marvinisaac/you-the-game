@@ -8,16 +8,17 @@
         <ul>
             <li v-for="attribute in attributes"
                 :key="attribute.name">
-                <template v-if="attribute.visible">
+                <template>
                     <span class="has-text-weight-bold">{{ attribute.name }} </span>
-                    <span>{{ attribute.value }}</span>
+                    <span v-if="attribute.visible">{{ attribute.value }}</span>
+                    <span v-else>???</span>
                 </template>
             </li>
         </ul>
         <hr/>
         <p>
             <span class="has-text-weight-bold">Weight </span>
-            <span>0 / {{ inventoryWeightLimit }}</span>
+            <span>??? / {{ inventoryWeightLimit }}</span>
         </p>
     </div>
 </template>

@@ -11,17 +11,17 @@ export default new Vuex.Store({
             }
         },
         player: {
-            name: 'Player',
+            name: '???',
             attributes: {
                 strength: {
                     name: 'Strength',
-                    value: 5,
-                    visible: true
+                    value: 0,
+                    visible: false
                 },
                 luck: {
                     name: 'Luck',
-                    value: 99,
-                    visible: true
+                    value: 0,
+                    visible: false
                 }
             }
         }

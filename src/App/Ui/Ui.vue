@@ -2,7 +2,12 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-10">
+                <div class="column is-2">
+                    <div class="box">
+                        <player></player>
+                    </div>
+                </div>
+                <div class="column">
                     <div class="tabs is-toggle">
                         <ul>
                             <li class="is-capitalized"
@@ -18,18 +23,13 @@
                     <inventory v-if="tab.active === 'inventory'"></inventory>
                     <log v-if="tab.active === 'log'"></log>
                 </div>
-                <div class="column is-2">
-                    <div class="box">
-                        <player></player>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 </template>
 
 <script>
-import Player from './Character/Player.vue'
+import Player from './UiPlayer.vue'
 import Action from './Tab/Action.vue'
 import Inventory from './Tab/Inventory.vue'
 import Log from './Tab/Log.vue'
