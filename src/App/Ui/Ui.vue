@@ -4,6 +4,9 @@
             <div class="columns">
                 <div class="column is-2">
                     <div class="box">
+                        <environment></environment>
+                    </div>
+                    <div class="box">
                         <player></player>
                     </div>
                 </div>
@@ -33,13 +36,15 @@ import Player from './UiPlayer.vue'
 import Action from './Tab/Action.vue'
 import Inventory from './Tab/Inventory.vue'
 import Log from './Tab/Log.vue'
+import Environment from './UiEnvironment.vue'
 
 export default {
     components: {
         Player,
         Action,
         Inventory,
-        Log
+        Log,
+        Environment
     },
     data: () => ({
         tab: {

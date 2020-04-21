@@ -47,6 +47,10 @@ export default {
 </script>
 
 <style scoped>
+p span, li span {
+    display: inline-block;
+    width: 50%;
+}
 hr {
     margin: 0.5rem 0;
 }
