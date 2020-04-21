@@ -1,5 +1,5 @@
 <template>
-    <section class="hero is-fullheight is-white">
+    <section class="hero has-background-white-bis is-fullheight is-white">
         <div class="hero-head">
             <h1 class="title">You</h1>
             <h6 class="subtitle is-size-6">The Game</h6>

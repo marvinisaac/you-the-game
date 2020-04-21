@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 p span, li span {
     display: inline-block;
     width: 50%;

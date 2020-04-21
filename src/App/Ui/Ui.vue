@@ -1,65 +1,58 @@
 <template>
     <section class="section">
         <div class="container">
-            <div class="columns">
-                <div class="column is-2">
-                    <div class="box">
-                        <environment></environment>
-                    </div>
-                    <div class="box">
-                        <player></player>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="buttons has-addons">
-                        <button class="button is-capitalized"
-                            v-for="tabItem in tab.list"
-                            @click="tab.active = tabItem"
-                            :class="{'is-dark': tabItem === tab.active}"
-                            :key="tabItem">
-                            {{ tabItem }}
-                        </button>
-                    </div>
-                    <action v-if="tab.active === 'action'"></action>
-                    <inventory v-if="tab.active === 'inventory'"></inventory>
-                    <log v-if="tab.active === 'log'"></log>
-                </div>
+            <div class="buttons has-addons is-centered is-small"
+                v-if="isCharacterCreated">
+                <template v-for="(sectionValues, name) in section.list">
+                    <button class="button is-capitalized"
+                        v-if="sectionValues.visible"
+                        @click="section.active = name"
+                        :class="{'is-link': name === section.active}"
+                        :key="name">
+                        {{ name }}
+                    </button>
+                </template>
             </div>
+            <game v-if="section.active === 'game'"></game>
+            <player v-if="section.active === 'character'"></player>
         </div>
     </section>
 </template>
 
 <script>
-import Player from './UiPlayer.vue'
-import Action from './Tab/Action.vue'
-import Inventory from './Tab/Inventory.vue'
-import Log from './Tab/Log.vue'
-import Environment from './UiEnvironment.vue'
+import Game from './Game/Game.vue'
+import Player from './Player/Player.vue'
 
 export default {
     components: {
-        Player,
-        Action,
-        Inventory,
-        Log,
-        Environment
+        Game,
+        Player
     },
     data: () => ({
-        tab: {
-            active: 'action',
-            list: [
-                'action',
-                'inventory',
-                'log'
-            ]
+        section: {
+            active: 'game',
+            list: {
+                // Instead of a simple array, list is an object to add some sort of feature flag
+                game: {
+                    visible: true
+                },
+                character: {
+                    visible: true
+                }
+            }
         }
-    })
+    }),
+    computed: {
+        isCharacterCreated () {
+            return this.$store.state.player.name !== '???'
+        }
+    }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .box {
-    border: 1px #DBDBDB solid;
+    border: 1px solid #DBDBDB;
     border-radius: 4px;
 }
 </style>
